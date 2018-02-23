@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  # get "cocktails", to: "pages#index"
   root to: "cocktails#index"
-  resources :cocktails
 
+  # resources :cocktails
+
+  resources :cocktails do
+    resources :doses, only: [ :new, :create ]
+  end
+  resources :doses, only: [ :destroy ]
 end
+
+# Rails.application.routes.draw do
+  # resources :restaurants do
+    # resources :reviews, only: [ :index, :new, :create ]
+  # end
+  # resources :reviews, only: [ :show, :edit, :update, :destroy ]
+# end
