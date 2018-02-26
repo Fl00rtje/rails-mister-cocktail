@@ -1,14 +1,23 @@
-<h1>List of Cocktails</h1>
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('http://www.mixology.nl/files/2013/01/Cocktails.jpg');">
+  <div class="banner-content">
+    <h1>Cocktails!</h1>
+    <p>Your favorite cocktails</p>
+    <%= link_to "ADD A COCKTAIL", new_cocktail_path, :class => "btn btn-primary" %>
+  </div>
+</div>
 
-<% @cocktails.each do |cocktail| %>
-<%= link_to cocktail.name, cocktail_path(cocktail.id) %><br>
-<%= link_to "--> delete cocktail", cocktail_path(cocktail), method: :delete %><br>
-<% end %>
+<div class="container">
+  <% @cocktails.each do |cocktail| %>
+  <h3><%= link_to cocktail.name, cocktail_path(cocktail.id) %></h3>
+  <%= link_to "Delete Cocktail", cocktail_path(cocktail), method: :delete, :class => "btn btn-danger" %>
+  <% end %>
+</div>
 
-<br>
-<br>
 
-<%= link_to "Add a cocktail", new_cocktail_path %>
+
+
+
+
 
 
 

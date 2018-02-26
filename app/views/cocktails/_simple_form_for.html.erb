@@ -1,7 +1,14 @@
-<%= form_for(@cocktail) do |t| %>
-  <%= t.label :name %>
-  <%= t.text_field :name %>
-  <%= t.submit %>
+<%#= form_for(@cocktail) do |t| %>
+  <%#= t.label :name %>
+  <%#= t.text_field :name %>
+  <%#= t.submit %>
+<%# end %>
+<!-- <br> -->
+
+
+<%= simple_form_for [@cocktail] do |f| %>
+  <%= f.input :name %>
+  <%#= f.input :ingredient_id, collection: Ingredient.all %>
+  <%= f.submit "Add a Cocktail", class: "btn btn-primary" %>
 <% end %>
-<br>
-<%= link_to "Back to cocktails", cocktails_path %>
+
